@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with JohnDoe landing page.">
+    <meta name="author">
+    <title>Quality Safety International</title>
+
+	<link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+  {% include 'header.njk' %}
+
+    {{ contetn | safe }}
+
+  <!-- {% include 'content.njk' %} -->
+  {% include 'footer.njk' %}
+  <!-- GLOBAL JAVASCRI -->
+<script src="js/main.js"></script>
+</body>
+</html>
