@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf no_optimization_public_folder/ && eleventy --serve"
+    "build": "rm -rf no_optimization_public_folder/ && eleventy"
   },
   "keywords": [],
   "author": "",
@@ -19,14 +19,14 @@
     "cssnano": "^7.0.3",
     "fancy-log": "^2.0.0",
     "gulp": "^5.0.0",
-    "gulp-autoprefixer": "^9.0.0",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-avif": "^1.1.1",
     "gulp-cheerio": "^1.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-delete-lines": "^0.0.7",
-    "gulp-filter": "^9.0.1",
+    "gulp-filter": "^7.0.0",
     "gulp-fontmin": "^0.7.4",
     "gulp-htmlmin": "^5.0.1",
     "gulp-image-lqip": "^2.0.0",

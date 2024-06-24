@@ -71,54 +71,54 @@ task("startup", async () => {
 // ============= finish initialization of imagemin ================
 
 // Configs per project
-const folder = "preview-file";
-const assets = folder + "/assets";
+const folder = "./no_optimization_public_folder";
+const assets = "";
 const assetFinal = "assets";
 // All paths
 const paths = {
   html: {
-    src: ['./src/' + folder + '/*.html'],
-    dest: './dist/' + folder + '/',
-    srcpurity: ['./dist/' + folder + '/*.html'],
-    destpurity: './dist/' + folder + '/',
+    src: ['' + folder + '/*.html'],
+    dest: './public_folder/' + folder + '/',
+    srcpurity: ['./public_folder/' + folder + '/*.html'],
+    destpurity: './public_folder/' + folder + '/',
   },
   images: {
-    src: ['./src/' + assets + '/img/**/**/*'],
-    dest: './dist/' + assets + '/img/',
+    src: [ folder + '/images/**/**/*'],
+    dest: './public_folder/' + '/images/',
   },
   css: {
-    src: ['./src/' + assets + '/css/**/*.css'],
-    dest: './dist/' + assets + '/tmp/css/',
-    srcone: ['./dist/' + assets + '/tmp/css/**/*.css'],
-    destone: './dist/' + assets + '/css/',
+    src: [ folder + '/css/**/*.css'],
+    dest: './public_folder/' + '/tmp/css/',
+    srcone: ['./public_folder/' + '/tmp/css/**/*.css'],
+    destone: './public_folder/' + '/css/',
   },
   fonts_ttf: {
-    src: ['./src/' + assets + '/fonts/**/*'],
-    dest: './dist/' + assets + '/fonts/',
+    src: [folder + '/fonts/**/*'],
+    dest: './public_folder/' + '/fonts/',
   },
   fonts_web: {
-    src: ['./src/' + assets + '/webfonts/**/*'],
-    dest: './dist/' + assets + '/webfonts/',
+    src: [folder+ '/webfonts/**/*'],
+    dest: './public_folder/' + '/webfonts/',
   },
   styles: {
-    src: ['./src/' + assets + '/scss/**/*.scss'],
-    dest: './dist/' + assets + '/scss/',
+    src: [ folder + '/scss/**/*.scss'],
+    dest: './public_folder/' + '/scss/',
   },
   scripts: {
-    src: ['./src/' + assets + '/js/**/*.js'],
-    dest: './dist/' + assets + '/tmp/js/',
-    srcone: ['./dist/' + assets + '/tmp/js/**/*.js'],
-    destone: './dist/' + assets + '/js/',
+    src: [ folder + '/js/**/*.js'],
+    dest: './public_folder/' + '/tmp/js/',
+    srcone: ['./public_folder/' + '/tmp/js/**/*.js'],
+    destone: './public_folder/' + '/js/',
   },
   cachebust: {
-    src: ['./src/' + folder + '/**/*.html'],
-    dest: './dist/' + folder + '/',
+    src: [ folder + '/**/*.html'],
+    dest: './public_folder/' + '/',
   },
   final: {
-    srcjs: ['./dist/' + assets + '/tmp/js/**/*.js'],
-    srccss: ['./dist/' + assets + '/css/**/all-min.css'],
-    destcss: './dist/' + assets + '/css/',
-    destjs: './dist/' + assets + '/js/',
+    srcjs: ['./public_folder/' +  '/tmp/js/**/*.js'],
+    srccss: ['./public_folder/' + '/css/**/all-min.css'],
+    destcss: './public_folder/' + '/css/',
+    destjs: './public_folder/' +  '/js/',
   }
 };
 
@@ -182,7 +182,7 @@ function oneCss() {
     .pipe(dest(paths.css.destone));
 }
 function copyAllExceptCss() {
-  return src(['./src/' + assets + '/css/**/*','!./src/' + assets + '/css/**/*.css','!./src/' + assets + '/css/**/*.map'])
+  return src(['' + assets + '/css/**/*','!' + assets + '/css/**/*.css','!' + assets + '/css/**/*.map'])
     .pipe(dest(paths.css.destone));
 }
 //1 Must run first from CSS Optimization
