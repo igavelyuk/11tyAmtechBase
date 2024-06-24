@@ -8,7 +8,7 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "public_folder"
+      output: "no_optimization_public_folder"
     }
   }
 }
