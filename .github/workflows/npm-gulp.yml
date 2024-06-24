@@ -25,5 +25,5 @@ jobs:
     - name: Build
       run: |
         npm install
-        npx @11ty/eleventy --serve
+        npx @11ty/eleventy
 
