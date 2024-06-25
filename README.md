@@ -1,6 +1,6 @@
 
 #  11ty blog Amtech
-## MitchellAnderson
+#### MitchellAnderson upwork task 06/21/2024
 
 ### Base install commands
 1. `git clone git@github.com:igavelyuk/11tyAmtech.git`
@@ -15,8 +15,11 @@
 
 #### Commands
 - `npm run build`
+  - removing `/no_optimization_public_folder` and build build fresh version inside, without optimization
 - `npm run serve`
+  - showing live version of current un optimized website (localhost:8080)
 - `npm run zip`
+  - removing `/public_folder` and build build fresh version inside, with optimization source from `/no_optimization_public_folder`
 
 ##### Global commans and information
 
@@ -63,35 +66,43 @@ with using
 - [Markdown -> help page](https://www.markdownguide.org/basic-syntax/)
 
 #### Packages used
+ - "@donmahallem/gulp-sharp": "^2.2.15",
+ - "autoprefixer": "^10.4.2",
+ - "cssnano": "^5.1.4",
+ - "fancy-log": "^2.0.0",
+ - "gulp-autoprefixer": "^8.0.0",
+ - "gulp-avif": "^1.0.1",
+ - "gulp-cheerio": "^1.0.0",
+ - "gulp-clean": "^0.4.0",
+ - "gulp-concat": "^2.6.1",
+ - "gulp-cssmin": "^0.2.0",
+ - "gulp-delete-lines": "^0.0.7",
+ - "gulp-filter": "^7.0.0",
+ - "gulp-fontmin": "^0.7.4",
+ - "gulp-htmlmin": "^5.0.1",
+ - "gulp-image-lqip": "^2.0.0",
+ - "gulp-imagemin": "^8.0.0",
+ - "gulp-postcss": "^9.0.1",
+ - "gulp-purifycss": "^0.2.0",
+ - "gulp-rename": "^2.0.0",
+ - "gulp-replace": "^1.1.3",
+ - "gulp-sass": "^5.1.0",
+ - "gulp-sourcemaps": "^3.0.0",
+ - "gulp-terser": "^2.1.0",
+ - "htmlparser2": "^7.2.0",
+ - "i": "^0.3.7",
+ - "imagemin-gifsicle": "^7.0.0",
+ - "imagemin-jpegtran": "^7.0.0",
+ - "imagemin-mozjpeg": "^10.0.0",
+ - "imagemin-optipng": "^8.0.0",
+ - "imagemin-pngquant": "^9.0.2",
+ - "imagemin-svgo": "^10.0.1",
+ - "install": "^0.13.0",
+ - "npm": "^8.5.4",
+ - "plugin-error": "^1.0.1",
+ - "sass": "^1.49.9",
+ - "sharp": "^0.30.3",
+ - "through2": "^4.0.2",
+ - "vinyl-buffer": "^1.0.1"
 
-- copyHTML -> Copy HTML from src to dist folder
-  - (package: )
-- compileStyles -> Compile SASS
-  - (package: `npm install sass npm-run-all --save-dev` )
-- copyCss -> autoprefix and minify css put to /dist/.../tmp/css
-  - (package: `npm install clean-css`)
-- cacheBust -> cache bust
-  - (package: )
-- oneCss -> make from all min.css files makes one all-min.css
-  - (package: )
-- minifyScripts -> minify js
-  - (package: )
-- purifyCss -> pass HTML export to filter classes from CSS
-  - (package: )
-- finalScript -> make from all min.js files makes one all-min.js
-  - (package: )
-- copyAllExceptCss -> in css folder can be extra resources, it copy to dist folder
-  - (package: )
-- copyFontsTTF -> copy fonts with optimizations from fonts folder
-  - (package: )
-- copyFontsWeb -> copy fonts with optimizations from webfonts folder
-  - (package: )
-- oneCssCompress -> compress all-min.css
-  - (package: )
-- optimizeImages -> optimize pictures
-  - (package: `npm install @11ty/eleventy-img`)
-- deleteTemps -> delete tmp folder (stored css)
-  - (package: )
-- purifyHtml -> removes all CSS and JS import s (package: )
-
-README.md - `ver 0.0.3`
+README.md - `ver 0.0.4`
