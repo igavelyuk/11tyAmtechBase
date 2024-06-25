@@ -1,60 +1,15 @@
-<section class="blog-area sec-pt-120 sec-pb-120">
-  <div class="container">
-    <div class="row blog-list-wrapper">
-<!-- blog-area loop start here ----------------------------------->
-      {%- for post in collections.post | reverse -%}
-<!-- blog-area section start here -->
-        <div style="padding-bottom:35px;" class="col-lg-6">
-          <div class="blog-card sigma_blog-list">
-            <div style="border: 1px solid red;" class="thumb">
-              <img style="border: 1px solid red;" src={{ post.data.image }} alt={{ post.author }}>
-              <a href="#" class="badge">{{post.data.tags}}</a>
-            <div class="blog-content">
-              <div class="text-content">
-                <h4>{{ post.data.title }}</h4>
-              <div class="blog-meta">
-                <span>
-                  <i class="fas fa-eye">
-                  </i>
-                  232 views
-                </span>
-                <span class="comments">
-                  <i class="fas fa-comments"></i>
-                  13 Comments
-                </span>
-                <span><i class="fas fa-calendar"></i>
-                  {{post.date}}
-                </span>
-              </div>
-              <p>{{ post.data.description | safe }}</p>
-            </div>
-            <div class="blog-btn">
-              <div class="sigma_post-author">
-                <img style="margin-top:0; heihgt:50px; width:50px;" src={{ post.data.authorImage }} alt={{ post.author }} />
-                <div class="sigma_post-author-content">
-                  By: {{ post.data.author }}
-                </div>
-              </div>
-              <a href={{ post.url }} class="btn">Read More<i class="fa fa-plus"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-<!-- blog-area section end here -->
-      {%- endfor -%}
-<!-- blog-area loop start here ----------------------------------->
 
-    <nav aria-label="Page navigation example ">
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-item-link" href="#" tabindex="-1">Prev</a>
-        </li>
-        <li class="page-item">
-          <a class="page-item-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</section>
-<!-- blog-area end here -->
+      {%- for prod in collections.prod | reverse -%}
+
+      <div class="product {{ prod.data.block }}">
+        <a href={{ prod.url }} >
+          <picture class="cs-picture">
+              <source media="(max-width: 600px)" srcset={{ prod.data.imagem }}>
+              <source media="(min-width: 601px)" srcset={{ prod.data.image }}>
+              <img loading="lazy" decoding="async" src={{ prod.data.imgagelazy }} alt="formerly dress you people outside" width={{ prod.data.imgwidth }} height={{ prod.data.imgheight }}>
+          </picture>
+          <h5 class="product-title">{{ prod.data.title }}</h5>
+          </a>
+      </div>
+
+      {%- endfor -%}
