@@ -13,12 +13,13 @@
 - Compress and optimize static files
 - Upload via FTP static files on your Server
 
-###### Commands
+#### Commands
 - `npm run build`
 - `npm run serve`
 - `npm run zip`
 
-- Global commans and information
+##### Global commans and information
+
   - Build from 11ty `npm run build` (same as 11ty build: `npx @11ty/eleventy`)
 
   - Run lcalhost:8080 `npm run serve` (Live Server: `npx @11ty/eleventy --serve`)
@@ -55,12 +56,14 @@ You can use it to do only one task
 npm install --global del-cli
 
 #### Links
+
 - [11ly blog engine](https://www.11ty.dev/docs/)
 with using
 - [Nunchaksjs -> help page](https://mozilla.github.io/nunjucks/),
 - [Markdown -> help page](https://www.markdownguide.org/basic-syntax/)
 
 #### Packages used
+
 - copyHTML -> Copy HTML from src to dist folder
   - (package: )
 - compileStyles -> Compile SASS
