@@ -13,4 +13,6 @@ description: "Durable bags for all your gear and equipment needs."
 block: "block-3"
 ---
 
-"A bag is a kind of soft container. It can hold or carry things. It may be made from cloth, leather, plastic, or paper. Many bags are disposable but some are made to use for a long time."
+"Our ropes complement our harness and restraint
+systems, featuring rope grabs,
+ascenders, descenders, and various accessories."

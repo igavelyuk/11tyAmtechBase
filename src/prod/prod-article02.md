@@ -13,4 +13,6 @@ description: "Durable bags for all your gear and equipment needs."
 block: "block-2"
 ---
 
-"A bag is a kind of soft container. It can hold or carry things. It may be made from cloth, leather, plastic, or paper. Many bags are disposable but some are made to use for a long time."
+"Premium harnesses are designed and assembled in New Zealand,
+tailored to our unique lifestyle. Range includes everyday, industry-specific,
+and custom harnesses for electrical work and rescue."

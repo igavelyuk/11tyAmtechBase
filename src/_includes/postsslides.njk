@@ -1,0 +1,21 @@
+
+      {%- for prod in collections.prod | reverse -%}
+      <div class="slides">
+          <!-- Each slide -->
+          <div class="slide">
+              <div class="slide-content">
+                  <h2 class="cs-title">{{ prod.data.title }}</h2>
+                  <p class="cs-text">
+                      {{ prod.data.description}}
+                  </p>
+              </div>
+              <a href={{ prod.url }} >
+              <picture class="cs-picture">
+                  <source media="(max-width: 600px)" srcset={{ prod.data.imagem }}>
+                  <source media="(min-width: 601px)" srcset={{ prod.data.image }}>
+                  <img loading="lazy" decoding="async" src={{ prod.data.imgagelazy }} alt="formerly dress you people outside" width={{ prod.data.imgwidth }} height={{ prod.data.imgheight }}>
+              </picture>
+              </a>
+          </div>
+
+      {%- endfor -%}
