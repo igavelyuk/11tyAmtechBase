@@ -73,13 +73,13 @@ task("startup", async () => {
 // Configs per project
 const srcfolder = "./no_optimization_public_folder";
 const destfolder = "./public_folder/";
-const assetFinal = "";
+const assetFinal = ".";
 // All paths
 const paths = {
   html: {
     src: [ srcfolder + '/**/*.html'],
     dest: destfolder,
-    srcpurity: [destfolder +  '*.html'],
+    srcpurity: [destfolder +  '/**/*.html'],
     destpurity: destfolder,
   },
   images: {
@@ -123,9 +123,11 @@ const paths = {
 };
 
 async function doAll() {
-  series(copyHTML, compileStyles, copyCss, cacheBust, oneCss, minifyScripts,
-    purifyCss, finalScript, copyAllExceptCss, copyFontsTTF, copyFontsWeb, oneCssCompress, addFallbackAvif, cacheBust)();
-  series(series(startup, optimizeImages, as, purifyHtml))();
+  // series(copyHTML, compileStyles, copyCss, cacheBust, oneCss, minifyScripts,
+  //   purifyCss, finalScript, copyAllExceptCss, copyFontsTTF, copyFontsWeb, oneCssCompress, addFallbackAvif, cacheBust)();
+  // series(series(startup, optimizeImages, as, purifyHtml))();
+  series(startup, cacheBust, copyHTML, copyCss, compileStyles, oneCss, minifyScripts, finalScript, cacheBust, optimizeImages, addFallbackAvif, purifyHtml)();
+  series(series(purifyHtml))();
 }
 
 // Early prototype, not finished
@@ -259,25 +261,45 @@ function optimizeImages() {
     // in pipe converts all JPEGS to webp format
     // must be used with cautions
     .pipe(imagemin([
-       	// imageminWebptran({
-        //    quality: 50
-        // }),
-      imageminGiftran({
-        colors: 128,
-        interlaced: true,
-        optimizationLevel: 3
-      }),
-      imageminMoztran({
-        progressive: true,
-        quality: 50
-      }),
-      imageminOpngtran({
-        optimizationLevel: 6
-        // Level and trials:
-        // (1)     (2)      (3)       (4)       (5)        (6)        (7)
-        // 1 trial 8 trials 16 trials 24 trials 48 trials 120 trials 240 trials
-      })
-    ]).on('error', (error) => console.log(error)))
+    	imageminGiftran({interlaced: true}),
+    	imageminMoztran({quality: 35, progressive: true}),
+    	imageminOpngtran({optimizationLevel: 5}),
+    	// svgo({
+    	// 	plugins: [
+    	// 		{
+    	// 			name: 'removeViewBox',
+    	// 			active: true
+    	// 		},
+    	// 		{
+    	// 			name: 'cleanupIDs',
+    	// 			active: false
+    	// 		}
+    	// 	]
+    	// })
+    ]))
+    // .pipe(
+    //
+    //   imagemin([
+    //    	// imageminWebptran({
+    //     //    quality: 50
+    //     // }),
+    //   imageminGiftran({
+    //     colors: 128,
+    //     interlaced: true,
+    //     optimizationLevel: 3
+    //   }),
+    //   imageminMoztran({
+    //     progressive: true,
+    //     quality: 50,
+    //     quantTable: 0
+    //   }),
+    //   imageminOpngtran({
+    //     optimizationLevel: 6
+    //     // Level and trials:
+    //     // (1)     (2)      (3)       (4)       (5)        (6)        (7)
+    //     // 1 trial 8 trials 16 trials 24 trials 48 trials 120 trials 240 trials
+    //   })
+    // ]).on('error', (error) => console.log(error)))
     .pipe(dest(paths.images.dest));
 }
 // Minify Images

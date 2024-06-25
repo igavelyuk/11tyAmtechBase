@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf no_optimization_public_folder/ && eleventy"
+    "build": "rm -rf no_optimization_public_folder/ && eleventy",
+    "serve": "rm -rf no_optimization_public_folder/ && eleventy --serve",
+    "zip": "rm -rf public_folder/ && gulp doAll"
   },
   "keywords": [],
   "author": "",
