@@ -85,6 +85,7 @@ const paths = {
   images: {
     src: [ srcfolder + '/images/**/**/*'],
     dest: destfolder + '/images/',
+    destavif: destfolder + '/images/avif',
   },
   css: {
     src: [ srcfolder + '/css/**/*.css'],
@@ -141,9 +142,9 @@ function addFallbackAvif() {
     // </picture>
 }
 task('addFallbackAvif1', ()=>{
-    return src(paths.images.src+'.{png,jpg}')
+    return src(paths.images.src+'.{png,jpg,jpeg}')
         .pipe(gulpAvif())
-        .pipe(dest(paths.images.dest));
+        .pipe(dest(paths.images.destavif));
 });
 function placeholder() {
   return src('/src/preview-file/*.html')

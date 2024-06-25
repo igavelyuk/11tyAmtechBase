@@ -11,6 +11,7 @@
               </div>
               <a href={{ prod.url }} >
               <picture class="cs-picture">
+                  <source type="image/avif" srcset={{ prod.data.imagem+".avif" }} />
                   <source media="(max-width: 600px)" srcset={{ prod.data.imagem }}>
                   <source media="(min-width: 601px)" srcset={{ prod.data.image }}>
                   <img loading="lazy" decoding="async" src={{ prod.data.imgagelazy }} alt="formerly dress you people outside" width={{ prod.data.imgwidth }} height={{ prod.data.imgheight }}>
