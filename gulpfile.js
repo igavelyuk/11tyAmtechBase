@@ -71,54 +71,54 @@ task("startup", async () => {
 // ============= finish initialization of imagemin ================
 
 // Configs per project
-const folder = "./no_optimization_public_folder";
-const assets = "";
-const assetFinal = "assets";
+const srcfolder = "./no_optimization_public_folder";
+const destfolder = "./public_folder/";
+const assetFinal = "";
 // All paths
 const paths = {
   html: {
-    src: ['' + folder + '/*.html'],
-    dest: './public_folder/' + folder + '/',
-    srcpurity: ['./public_folder/' + folder + '/*.html'],
-    destpurity: './public_folder/' + folder + '/',
+    src: [ srcfolder + '/**/*.html'],
+    dest: destfolder,
+    srcpurity: [destfolder +  '*.html'],
+    destpurity: destfolder,
   },
   images: {
-    src: [ folder + '/images/**/**/*'],
-    dest: './public_folder/' + '/images/',
+    src: [ srcfolder + '/images/**/**/*'],
+    dest: destfolder + '/images/',
   },
   css: {
-    src: [ folder + '/css/**/*.css'],
-    dest: './public_folder/' + '/tmp/css/',
-    srcone: ['./public_folder/' + '/tmp/css/**/*.css'],
-    destone: './public_folder/' + '/css/',
+    src: [ srcfolder + '/css/**/*.css'],
+    dest: destfolder + '/tmp/css/',
+    srcone: [destfolder + '/tmp/css/**/*.css'],
+    destone: destfolder + '/css/',
   },
   fonts_ttf: {
-    src: [folder + '/fonts/**/*'],
-    dest: './public_folder/' + '/fonts/',
+    src: [ srcfolder + '/css/font/**/*'],
+    dest: destfolder + 'fonts/',
   },
   fonts_web: {
-    src: [folder+ '/webfonts/**/*'],
-    dest: './public_folder/' + '/webfonts/',
+    src: [srcfolder + '/css/font/**/*'],
+    dest: destfolder + 'webfonts/',
   },
   styles: {
-    src: [ folder + '/scss/**/*.scss'],
-    dest: './public_folder/' + '/scss/',
+    src: [ srcfolder + '/scss/**/*.scss'],
+    dest: destfolder + 'scss/',
   },
   scripts: {
-    src: [ folder + '/js/**/*.js'],
-    dest: './public_folder/' + '/tmp/js/',
-    srcone: ['./public_folder/' + '/tmp/js/**/*.js'],
-    destone: './public_folder/' + '/js/',
+    src: [ srcfolder + '/js/**/*.js'],
+    dest: destfolder + 'tmp/js/',
+    srcone: [destfolder + 'tmp/js/**/*.js'],
+    destone: destfolder + '/js/',
   },
   cachebust: {
-    src: [ folder + '/**/*.html'],
-    dest: './public_folder/' + '/',
+    src: [ srcfolder + '/**/*.html'],
+    dest: destfolder + '/',
   },
   final: {
-    srcjs: ['./public_folder/' +  '/tmp/js/**/*.js'],
-    srccss: ['./public_folder/' + '/css/**/all-min.css'],
-    destcss: './public_folder/' + '/css/',
-    destjs: './public_folder/' +  '/js/',
+    srcjs: [destfolder +  'tmp/js/**/*.js'],
+    srccss: [destfolder + 'css/**/all-min.css'],
+    destcss: destfolder + 'css/',
+    destjs: destfolder +  'js/',
   }
 };
 
@@ -165,8 +165,8 @@ function copyFontsWeb() {
 function copyHTML() {
   return src(paths.html.src)
     // .pipe(htmlmin({
-    //   collapseWhitespace: true
-    // }))
+    //    collapseWhitespace: true
+    //  }))
     .pipe(dest(paths.html.dest));
 }
 
@@ -177,12 +177,12 @@ function oneCss() {
     // .pipe(gaprefixer())
     .pipe(concat('all-min.css'))
     // .pipe(sourcemaps.write('.'))
-    .pipe(gulpFilter(['*', `!${assetFinal} + /css/all-min.css`]))
+    .pipe(gulpFilter(['**', `!*/css/all-min.css`]))
     .pipe(clean())
     .pipe(dest(paths.css.destone));
 }
 function copyAllExceptCss() {
-  return src(['' + assets + '/css/**/*','!' + assets + '/css/**/*.css','!' + assets + '/css/**/*.map'])
+  return src(['' + '/css/**/*','!' + '/css/**/*.css','!' + '/css/**/*.map'])
     .pipe(dest(paths.css.destone));
 }
 //1 Must run first from CSS Optimization
@@ -248,7 +248,7 @@ function purifyHtml() {
     }))
     .pipe(dest(paths.html.destpurity))
     .on('end', function() {
-      log("Process => "+folder)
+      log("Process => "+srcfolder)
       log.warn("Status => ============ Finish ==============")
       log.info("Time => "+new Date().toLocaleString())
       })
@@ -259,9 +259,9 @@ function optimizeImages() {
     // in pipe converts all JPEGS to webp format
     // must be used with cautions
     .pipe(imagemin([
-      // 	imageminWebptran({
-      //     quality: 50
-      //   }),
+       	// imageminWebptran({
+        //    quality: 50
+        // }),
       imageminGiftran({
         colors: 128,
         interlaced: true,
@@ -321,13 +321,13 @@ function finalScript() {
     .pipe(concat('all-min.js'))
     .pipe(sourcemaps.write('.'))
     // .pipe(del([paths.scripts.src, `!${assetFinal} + /js/all-min.js`]))
-    // .pipe(gulpFilter(['*', `!${assetFinal} + /js/all-min.js`]))
+    .pipe(gulpFilter(['*', `!${assetFinal} + /js/all-min.js`]))
     // .pipe(clean())
     .pipe(dest(paths.final.destjs));
 }
 
 function as() {
-  return src('dist/preview-file/assets/tmp', {
+  return src('./public_folder/tmp', {
       read: false
     })
     .pipe(clean());

@@ -1,0 +1,22 @@
+gulp startup
+gulp watcher
+gulp cacheBust
+gulp copyHTML
+gulp copyCss
+gulp compileStyles
+gulp oneCss
+gulp minifyScripts
+gulp finalScript
+gulp purifyCss //not used
+
+gulp copyAllExceptCss
+gulp copyFontsTTF // not in project
+gulp copyFontsWeb // not in project
+
+gulp doImages
+gulp purifyHtml
+
+gulp oneCssCompress
+gulp addFallbackAvif
+gulp cacheBust
+gulp cacheBust
