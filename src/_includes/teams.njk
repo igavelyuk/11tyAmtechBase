@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with JohnDoe landing page.">
+    <meta name="author">
+    <title>Quality Safety International</title>
+
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/products.css">
+  </head>
+  <body class="products-page">
+
+    {% include 'teamsheader.njk' %}
+    <section id="products-slider" class="products-slider">
+      <div class="cs-container">
+        <div class="cs-content">
+          <div class="slider">
+            <div class="slides">
+
+
+              {%- for teams in collections.teams | reverse -%}
+              <div class="slide">
+              <div class="slide-content">
+                <h2 class="cs-title">Super team</h2>
+                <p class="cs-text">
+                    Durable as bags.
+                </p>
+              </div>
+              <div class="product {{ teams.data.block }}">
+                {# <a href={{ teams.url }} > #}
+                  <picture class="cs-picture">
+                    {% set urlstring = teams.data.image %}
+                      <source media="(max-width: 600px)" type="image/avif" srcset={{ urlstring | replace("images", "/images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
+                      {# <source media="(max-width: 600px)" srcset={{ prod.data.imagem }}> #}
+                      <source media="(min-width: 601px)" srcset={{ teams.data.image }}>
+                      <img loading="lazy" decoding="async" src={{ teams.data.imgagelazy }} alt="formerly dress you people outside" width={{ teams.data.imgwidth }} height={{ teams.data.imgheight }}>
+                  </picture>
+                  <h5 class="product-title">{{ teams.data.title }}</h5>
+                  {# </a> #}
+              </div>
+              </div>
+
+          <!-- Dots for navigation -->
+          {%- endfor -%}
+
+  <button class="prev" onclick="moveSlide(-1, 'products-slider')">&#10094;</button>
+  <button class="next" onclick="moveSlide(1, 'products-slider')">&#10095;</button>
+
+  <div class="dots">
+  <span class="dot" onclick="currentSlide(0, 'products-slider')"></span>
+  <span class="dot" onclick="currentSlide(1, 'products-slider')"></span>
+  <span class="dot" onclick="currentSlide(2, 'products-slider')"></span>
+  <span class="dot" onclick="currentSlide(3, 'products-slider')"></span>
+  <span class="dot" onclick="currentSlide(4, 'products-slider')"></span>
+  <span class="dot" onclick="currentSlide(5, 'products-slider')"></span>
+  <span class="dot" onclick="currentSlide(6, 'products-slider')"></span>
+  <span class="dot" onclick="currentSlide(7, 'products-slider')"></span>
+  <span class="dot" onclick="currentSlide(8, 'products-slider')"></span>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+    {% include 'footer.njk' %}
+
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>

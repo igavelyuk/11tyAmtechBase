@@ -1,11 +1,11 @@
 ---
-title: "HARDWARE"
+title: "Ren"
 author: "Amtech"
 date: "2024-06-22"
 tags: ["teams"]
-imagem: "..images/avif/team-gallery/team-gallery-img-6-m.png"
-image: "..images/team-gallery/team-gallery-img-6.png"
-imgagelazy: "..images/team-gallery/team-gallery-img-6.png"
+imagem: "../images/avif/team-gallery/team-gallery-img-6-m.jpeg"
+image: "../images/team-gallery/team-gallery-img-6.jpeg"
+imgagelazy: "../images/team-gallery/team-gallery-img-6.jpeg"
 imageAlt: "Ren, the Shadow Weaver"
 imgwidth: "380"
 imgheight: "271"

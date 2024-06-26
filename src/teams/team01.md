@@ -1,11 +1,11 @@
 ---
-title: "BAGS & STORAGE"
+title: "Anya"
 author: "Amtech"
 date: "2024-06-22"
 tags: ["teams"]
-imagem: "..images/avif/team-gallery/team-gallery-img-1-m.png"
-image: "..images/team-gallery/team-gallery-img-1.png"
-imgagelazy: "..images/team-gallery/team-gallery-img-1.png"
+imagem: "../images/avif/team-gallery/team-gallery-img-1-m.png"
+image: "../images/team-gallery/team-gallery-img-1.png"
+imgagelazy: "../images/team-gallery/team-gallery-img-1.png"
 imageAlt: "Anya, the Streetwise Mechanic"
 imgwidth: "380"
 imgheight: "271"
