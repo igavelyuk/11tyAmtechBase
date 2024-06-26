@@ -10,7 +10,7 @@ imageAlt: "Kai, the Ghost Dancer"
 imgwidth: "380"
 imgheight: "271"
 description: "Kai, the Ghost Dancer"
-block: "block-3"
+block: "cs-picture-3"
 ---
 
 "Ethereal and silent, Kai moved like a wisp of smoke. Her pale skin seemed to shimmer in the moonlight, and her silver hair flowed freely as if defying gravity. A mischievous glint danced in her lavender eyes, hinting at a playful spirit beneath the stoic facade."

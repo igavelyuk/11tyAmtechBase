@@ -10,7 +10,7 @@ imageAlt: "Ren, the Shadow Weaver"
 imgwidth: "380"
 imgheight: "271"
 description: "Ren, the Shadow Weaver"
-block: "block-6"
+block: "cs-picture-6"
 ---
 
 "Clad entirely in black, Ren moved with the stealth of a panther. His face was obscured by a hood, leaving only a single, piercing crimson eye visible. An aura of mystery clung to him, a constant reminder of his ability to manipulate the very shadows themselves."

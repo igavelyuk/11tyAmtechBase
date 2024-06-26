@@ -10,7 +10,7 @@ imageAlt: "Amara, the Bookish Scholar"
 imgwidth: "380"
 imgheight: "271"
 description: "Amara, the Bookish Scholar"
-block: "block-8"
+block: "cs-picture-8"
 ---
 
 "Her nose was perpetually buried in a dusty tome, her brow furrowed in concentration. Her silver hair, meticulously braided, hinted at an organized mind. Round spectacles perched precariously on her nose, revealing eyes that sparkled with the thrill of discovery."

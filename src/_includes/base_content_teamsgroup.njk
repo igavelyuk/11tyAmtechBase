@@ -1,0 +1,21 @@
+
+      {%- for teams in collections.teams | reverse -%}
+
+      <picture class="cs-picture {{ teams.data.block }}">
+        {% set urlstring = teams.data.image %}
+          <source media="(max-width: 600px)" type="image/avif" srcset={{ urlstring | replace("/images", "images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
+          {# <source media="(max-width: 600px)" srcset={{ teams.data.imagem }}> #}
+          <source media="(min-width: 601px)" srcset={{ teams.data.image }}>
+          <img loading="lazy" decoding="async" src={{ teams.data.imgagelazy }} alt="formerly dress youpeople outside" width={{ teams.data.imgwidth }} height={{ teams.data.imgheight }}>
+      </picture>
+
+
+  {# <picture class="cs-picture cs-picture-1">
+    <source media="(max-width: 600px)" srcset="images/team-gallery/team-gallery-img-1-m.png">
+      <source media="(min-width: 601px)" srcset="images/team-gallery/team-gallery-img-1.png">
+      <img loading="lazy" decoding="async" src="images/team-gallery/team-gallery-img-1.png" alt="formerly dress you people outside" width="380" height="271">
+  </picture> #}
+
+
+
+      {%- endfor -%}

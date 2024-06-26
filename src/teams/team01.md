@@ -10,7 +10,7 @@ imageAlt: "Anya, the Streetwise Mechanic"
 imgwidth: "380"
 imgheight: "271"
 description: "CEO"
-block: "block-1"
+block: "cs-picture-1"
 ---
 
 " Grease stains perpetually marked her overalls, a testament to her tireless tinkering. Her eyes, the color of polished emeralds, held a sharp wit that could diagnose a malfunctioning engine faster than most could pronounce it. A shock of electric blue hair, often singed at the ends, framed her freckled face, a constant reminder of her fiery spirit."

@@ -2,7 +2,7 @@
       {%- for prod in collections.prod | reverse -%}
 
       <div class="product {{ prod.data.block }}">
-        <a href={{ prod.url }} >
+        {# <a href={{ prod.url }} > #}
           <picture class="cs-picture">
             {% set urlstring = prod.data.image %}
               <source media="(max-width: 600px)" type="image/avif" srcset={{ urlstring | replace("/images", "/images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
@@ -11,7 +11,7 @@
               <img loading="lazy" decoding="async" src={{ prod.data.imgagelazy }} alt="formerly dress you people outside" width={{ prod.data.imgwidth }} height={{ prod.data.imgheight }}>
           </picture>
           <h5 class="product-title">{{ prod.data.title }}</h5>
-          </a>
+          {# </a> #}
       </div>
 
       {%- endfor -%}
