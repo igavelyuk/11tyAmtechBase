@@ -127,8 +127,10 @@ async function doAll() {
   // series(copyHTML, compileStyles, copyCss, cacheBust, oneCss, minifyScripts,
   //   purifyCss, finalScript, copyAllExceptCss, copyFontsTTF, copyFontsWeb, oneCssCompress, addFallbackAvif, cacheBust)();
   // series(series(startup, optimizeImages, as, purifyHtml))();
-  series(startup, cacheBust, copyHTML, copyCss, compileStyles, oneCss, minifyScripts, finalScript, cacheBust, optimizeImages, addFallbackAvif, purifyHtml)();
-  series(series(purifyHtml))();
+  // series(series(purifyHtml))();
+
+  series(startup, cacheBust, copyHTML, copyCss, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml, optimizeImages, addFallbackAvif)();
+
 }
 
 // Early prototype, not finished
@@ -250,11 +252,11 @@ function purifyHtml() {
       collapseWhitespace: true
     }))
     .pipe(dest(paths.html.destpurity))
-    .on('end', function() {
-      log("Process => "+srcfolder)
-      log.warn("Status => ============ Finish ==============")
-      log.info("Time => "+new Date().toLocaleString())
-      })
+    // .on('end', function() {
+    //   log("Process => "+srcfolder)
+    //   log.warn("Status => ============ purifyHtml ==============")
+    //   log.info("Time => "+new Date().toLocaleString())
+    //   })
 }
 
 function optimizeImages() {
@@ -263,7 +265,7 @@ function optimizeImages() {
     // must be used with cautions
     .pipe(imagemin([
     	imageminGiftran({interlaced: true}),
-    	imageminMoztran({quality: 35, progressive: true}),
+    	imageminMoztran({quality: 20, progressive: true}),
     	imageminOpngtran({optimizationLevel: 5}),
     	// svgo({
     	// 	plugins: [
@@ -301,7 +303,7 @@ function optimizeImages() {
     //     // 1 trial 8 trials 16 trials 24 trials 48 trials 120 trials 240 trials
     //   })
     // ]).on('error', (error) => console.log(error)))
-    .pipe(dest(paths.images.dest));
+    .pipe(dest(paths.images.dest))
 }
 // Minify Images
 /**

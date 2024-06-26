@@ -64,6 +64,8 @@ npm install --global del-cli
 with using
 - [Nunchaksjs -> help page](https://mozilla.github.io/nunjucks/),
 - [Markdown -> help page](https://www.markdownguide.org/basic-syntax/)
+- [WebP cli](https://developers.google.com/speed/webp/docs/precompiled)
+- [Avif Webp compare online tool](https://squoosh.app)
 
 #### Packages used
  - "@donmahallem/gulp-sharp": "^2.2.15",

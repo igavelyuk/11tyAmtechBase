@@ -5,8 +5,8 @@
         <a href={{ prod.url }} >
           <picture class="cs-picture">
             {% set urlstring = prod.data.image %}
-              <source type="image/avif" srcset={{ urlstring | replace("/images", "/images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
-              <source media="(max-width: 600px)" srcset={{ prod.data.imagem }}>
+              <source media="(max-width: 600px)" type="image/avif" srcset={{ urlstring | replace("/images", "/images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
+              {# <source media="(max-width: 600px)" srcset={{ prod.data.imagem }}> #}
               <source media="(min-width: 601px)" srcset={{ prod.data.image }}>
               <img loading="lazy" decoding="async" src={{ prod.data.imgagelazy }} alt="formerly dress you people outside" width={{ prod.data.imgwidth }} height={{ prod.data.imgheight }}>
           </picture>
