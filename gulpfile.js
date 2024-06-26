@@ -73,7 +73,7 @@ task("startup", async () => {
 // Configs per project
 const srcfolder = "./no_optimization_public_folder";
 const destfolder = "./public_folder/";
-const assetFinal = ".";
+const assetFinal = "..";
 // All paths
 const paths = {
   html: {
@@ -145,7 +145,14 @@ function addFallbackAvif() {
 }
 task('addFallbackAvif1', ()=>{
     return src(paths.images.src+'.{png,jpg,jpeg}')
-        .pipe(gulpAvif())
+        .pipe(
+          gulpAvif({
+            quality: 40,
+            lossless: false,
+            speed: 8,
+            chromaSubsampling: '4:2:0'
+          })
+        )
         .pipe(dest(paths.images.destavif));
 });
 function placeholder() {
@@ -265,7 +272,7 @@ function optimizeImages() {
     // must be used with cautions
     .pipe(imagemin([
     	imageminGiftran({interlaced: true}),
-    	imageminMoztran({quality: 20, progressive: true}),
+    	imageminMoztran({quality: 40, progressive: true}),
     	imageminOpngtran({optimizationLevel: 5}),
     	// svgo({
     	// 	plugins: [
