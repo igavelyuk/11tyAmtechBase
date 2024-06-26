@@ -15,7 +15,7 @@
 
     {% include 'teamsheader.njk' %}
     <section id="products-slider" class="products-slider">
-      <div class="cs-container">
+      <div class="cs-container padding-top-teams100">
         <div class="cs-content">
           <div class="slider">
             <div class="slides">
@@ -47,7 +47,7 @@
           {%- endfor -%}
 
   <button class="prev" onclick="moveSlide(-1, 'products-slider')">&#10094;</button>
-  <button class="next" onclick="moveSlide(1, 'products-slider')">&#10095;</button>
+  <button class="next" onclick="moveSlide(+1, 'products-slider')">&#10095;</button>
 
   <div class="dots">
   <span class="dot" onclick="currentSlide(0, 'products-slider')"></span>

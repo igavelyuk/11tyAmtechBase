@@ -1,4 +1,4 @@
-//Smooth scrolling 
+//Smooth scrolling
 document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('a[href^="#"]');
 
@@ -35,7 +35,7 @@ CShamburgerMenu.addEventListener('click', function() {
     ariaExpanded();
 });
 
-// checks the value of aria expanded on the cs-ul and changes it accordingly whether it is expanded or not 
+// checks the value of aria expanded on the cs-ul and changes it accordingly whether it is expanded or not
 function ariaExpanded() {
     const csUL = document.querySelector('#cs-expanded');
     const csExpanded = csUL.getAttribute('aria-expanded');
@@ -48,10 +48,10 @@ function ariaExpanded() {
 }
 
 // This script adds a class to the body after scrolling 100px
-// and we used these body.scroll styles to create some on scroll 
+// and we used these body.scroll styles to create some on scroll
 // animations with the navbar
 
-document.addEventListener('scroll', (e) => { 
+document.addEventListener('scroll', (e) => {
     const scroll = document.documentElement.scrollTop;
     if(scroll >= 100){
 document.querySelector('body').classList.add('scroll')
@@ -68,30 +68,32 @@ const dropDowns = Array.from(document.querySelectorAll('#navigation .cs-dropdown
     }
     item.addEventListener('click', onClick)
     }
-                            
+
 
     document.addEventListener('DOMContentLoaded', () => {
         const sliders = document.querySelectorAll('.products-slider');
         sliders.forEach((slider, index) => initializeSlider(slider, index));
     });
-    
+
+
     function initializeSlider(slider, index) {
-        const slides = slider.querySelectorAll('.slide');
-        const dots = slider.querySelectorAll('.dot');
+      const slides = slider.querySelectorAll('.slide');
+      const dots = slider.querySelectorAll('.dot');
+
         let currentIndex = 0;
-    
+
         function showSlides(index) {
-            if (index >= slides.length) {
+            if (index >= slides.length-1) {
                 currentIndex = 0;
             }
             if (index < 0) {
-                currentIndex = slides.length - 1;
+                currentIndex = slides.length;
             }
-    
+
             slides.forEach((slide, i) => {
                 slide.style.display = (i === currentIndex) ? 'block' : 'none';
             });
-    
+
             dots.forEach((dot, i) => {
                 dot.className = dot.className.replace(' active', '');
                 if (i === currentIndex) {
@@ -99,21 +101,21 @@ const dropDowns = Array.from(document.querySelectorAll('#navigation .cs-dropdown
                 }
             });
         }
-    
-        showSlides(currentIndex);
-    
+
+        // showSlides(currentIndex);
+
         slider.querySelector('.prev').addEventListener('click', () => {
-            showSlides(currentIndex -= 1);
+            if (currentIndex = 0) showSlides(currentIndex -= 1);
+            showSlides(currentIndex += 1)
         });
-    
+
         slider.querySelector('.next').addEventListener('click', () => {
             showSlides(currentIndex += 1);
         });
-    
+
         dots.forEach((dot, i) => {
             dot.addEventListener('click', () => {
                 showSlides(currentIndex = i);
             });
         });
     }
-    
