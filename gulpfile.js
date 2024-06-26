@@ -72,6 +72,7 @@ task("startup", async () => {
 
 // Configs per project
 const srcfolder = "./no_optimization_public_folder";
+const srcfolderfonts = "./src";
 const destfolder = "./public_folder/";
 const assetFinal = "..";
 // All paths
@@ -94,12 +95,12 @@ const paths = {
     destone: destfolder + '/css/',
   },
   fonts_ttf: {
-    src: [ srcfolder + '/css/font/**/*'],
-    dest: destfolder + 'fonts/',
+    src: [ srcfolderfonts + '/css/ttf/**/*'],
+    dest: destfolder + 'css/ttf/',
   },
   fonts_web: {
-    src: [srcfolder + '/css/font/**/*'],
-    dest: destfolder + 'webfonts/',
+    src: [srcfolderfonts + '/css/webfonts/**/*'],
+    dest: destfolder + 'css/webfonts/',
   },
   styles: {
     src: [ srcfolder + '/scss/**/*.scss'],
@@ -129,7 +130,7 @@ async function doAll() {
   // series(series(startup, optimizeImages, as, purifyHtml))();
   // series(series(purifyHtml))();
 
-  series(startup, cacheBust, copyHTML, copyCss, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml, optimizeImages, addFallbackAvif)();
+  series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml, optimizeImages, addFallbackAvif)();
 
 }
 

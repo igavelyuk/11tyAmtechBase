@@ -16,12 +16,12 @@
     --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
 }
 @font-face {
-    font-family: klavika-medium;
-    src: url(font/klavika-medium.otf);
+    font-family: "klavika-medium";
+	src: url('../css/webfonts/klavika-medium.woff2') format('woff2');
 }
 @font-face {
-    font-family: klavika-light;
-    src: url(font/klavika-light.otf);
+    font-family: "klavika-light";
+    src: url('../css/webfonts/klavika-light.woff2') format('woff2');
 }
 
 html {
