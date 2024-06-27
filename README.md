@@ -60,8 +60,7 @@ npm install --global del-cli
 
 #### Links
 
-- [11ly blog engine](https://www.11ty.dev/docs/)
-with using
+- [11ly blog engine help](https://www.11ty.dev/docs/)
 - [Nunchaksjs -> help page](https://mozilla.github.io/nunjucks/),
 - [Markdown -> help page](https://www.markdownguide.org/basic-syntax/)
 - [WebP cli](https://developers.google.com/speed/webp/docs/precompiled)
