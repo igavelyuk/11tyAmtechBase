@@ -107,4 +107,4 @@ with using
  - "through2": "^4.0.2",
  - "vinyl-buffer": "^1.0.1"
 
-README.md - `ver 0.0.4`
+README.md - `ver 0.0.5`
