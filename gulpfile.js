@@ -255,8 +255,8 @@ function purifyHtml() {
     .pipe(cheerio(function($) {
       // $('script').remove(); /broken files
       // $('link').remove();
-      $('head').append(`<link rel="stylesheet" href="${assetFinal+'/css/all-min.css'}"/>`);
-      $('body').append(`<script src="${assetFinal+'../js/all-min.js'}"></script>`);
+      $('head').append(`<link rel="stylesheet" href="${assetFinal+'../../css/all-min.css'}"/>`);
+      $('body').append(`<script src="${assetFinal+'../../js/all-min.js'}"></script>`);
     }))
     .pipe(htmlmin({
       collapseWhitespace: true
@@ -356,7 +356,7 @@ function finalScript() {
     .pipe(concat('all-min.js'))
     .pipe(sourcemaps.write('.'))
     // .pipe(del([paths.scripts.src, `!${assetFinal} + /js/all-min.js`]))
-    .pipe(gulpFilter(['*', `!${assetFinal} + /js/all-min.js`]))
+    .pipe(gulpFilter(['*', `!${assetFinal} + ../../js/all-min.js`]))
     // .pipe(clean())
     .pipe(dest(paths.final.destjs));
 }
