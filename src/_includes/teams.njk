@@ -37,10 +37,11 @@
       <div class="cs-container padding-top-teams100">
         <div class="cs-content">
           <div class="slider">
-            <div class="slides">
+
 
 
               {%- for teams in collections.teams | reverse -%}
+              <div class="slides">
               <div class="slide">
               <div class="slide-content">
                 <h2 class="cs-title">  </h2>
@@ -62,6 +63,7 @@
                   {# </a> #}
               </div>
               </div>
+              </div>
 
           <!-- Dots for navigation -->
           {%- endfor -%}
@@ -80,7 +82,7 @@
   <span class="dot" onclick="currentSlide(7, 'products-slider')"></span>
   <span class="dot" onclick="currentSlide(8, 'products-slider')"></span>
   </div>
-  </div>
+
   </div>
   </div>
   </div>
