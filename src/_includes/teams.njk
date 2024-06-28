@@ -33,10 +33,11 @@
   <body class="products-page">
 
     {% include 'teamsheader.njk' %}
-    <section id="products-slider" class="products-slider">
-      <div class="cs-container padding-top-teams100">
-        <div class="cs-content">
-          <div class="slider">
+    <section id="gallery">
+        <div class="cs-container padding-top-teams100">
+
+        {#<div class="cs-content">
+          <div class="slider products-slider">
 
 
 
@@ -50,22 +51,21 @@
                 </p>
               </div>
               <div class="product {{ teams.data.block }}">
-                {# <a href={{ teams.url }} > #}
+
                   <picture class="cs-picture">
                     {% set urlstring = teams.data.image %}
                     {% set urlstringm = teams.data.imagem %}
                     <source media="(max-width: 600px)" type="image/avif" srcset={{ urlstringm | replace("/images", "images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
-                    {# <source media="(max-width: 600px)" srcset={{ teams.data.imagem }}> #}
+                    <source media="(max-width: 600px)" srcset={{ teams.data.imagem }}>
                     <source media="(min-width: 601px)" srcset={{ urlstring | replace("/images", "/../images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }}>
                       <img loading="lazy" decoding="async" src={{ teams.data.imgagelazy }} alt="formerly dress you people outside" width={{ teams.data.imgwidth }} height={{ teams.data.imgheight }}>
                   </picture>
                   <h5 class="product-title">{{ teams.data.title }}</h5>
-                  {# </a> #}
+
               </div>
               </div>
               </div>
 
-          <!-- Dots for navigation -->
           {%- endfor -%}
 
 
@@ -84,9 +84,13 @@
   </div>
 
   </div>
+  </div> #}
+
+  <div class="cs-image-group">
+    {% include 'base_content_teamsgroup.njk' %}
   </div>
   </div>
-</section>
+  </section>
 
     {% include 'footer.njk' %}
 

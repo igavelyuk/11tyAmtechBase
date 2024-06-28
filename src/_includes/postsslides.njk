@@ -3,8 +3,9 @@
     <div class="cs-container padding-top-teams100">
       <div class="cs-content">
         <div class="slider">
-          <div class="slides">
+
             {%- for prod in collections.prod | reverse -%}
+            <div id ="{{prod.data.block }}" class="slides">
             <div class="slide">
             <div class="slide-content">
               <h2 class="cs-title">  </h2>
@@ -13,7 +14,7 @@
               </p>
             </div>
             <div class="product {{ teams.data.block }}">
-              {# <a href={{ teams.url }} > #}
+              {# <a href={{ '#'+teams.url }} > #}
                 <picture class="cs-picture">
                   {% set urlstring = teams.data.image %}
                   {% set urlstringm = teams.data.imagem %}
@@ -26,11 +27,12 @@
                 {# </a> #}
             </div>
             </div>
+            </div>
 
         <!-- Dots for navigation -->
         {%- endfor -%}
 
-<button class="prev" onclick="moveSlide(-1, 'products-slider')">&#10094;</button>
+{# <button class="prev" onclick="moveSlide(-1, 'products-slider')">&#10094;</button>
 <button class="next" onclick="moveSlide(+1, 'products-slider')">&#10095;</button>
 
 <div class="dots">
@@ -41,7 +43,7 @@
 <span class="dot" onclick="currentSlide(4, 'products-slider')"></span>
 <span class="dot" onclick="currentSlide(5, 'products-slider')"></span>
 
-</div>
+</div> #}
 </div>
 </div>
 </div>
