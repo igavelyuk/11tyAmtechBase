@@ -130,8 +130,10 @@ async function doAll() {
   // series(series(startup, optimizeImages, as, purifyHtml))();
   // series(series(purifyHtml))();
 
+// Backup Good
   series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml, optimizeImages, addFallbackAvif)();
 
+  // series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml)();
 }
 
 // Early prototype, not finished
@@ -254,7 +256,7 @@ function purifyHtml() {
       // $('script').remove(); /broken files
       // $('link').remove();
       $('head').append(`<link rel="stylesheet" href="${assetFinal+'/css/all-min.css'}"/>`);
-      $('body').append(`<script src="${assetFinal+'/js/all-min.js'}"></script>`);
+      $('body').append(`<script src="${assetFinal+'../js/all-min.js'}"></script>`);
     }))
     .pipe(htmlmin({
       collapseWhitespace: true

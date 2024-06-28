@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('a[href^="#"]');
 
     for (const link of links) {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
+        link.addEventListener('click', (element) => {
+            element.preventDefault();
 
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
@@ -51,7 +51,7 @@ function ariaExpanded() {
 // and we used these body.scroll styles to create some on scroll
 // animations with the navbar
 
-document.addEventListener('scroll', (e) => {
+document.addEventListener('scroll', (element) => {
     const scroll = document.documentElement.scrollTop;
     if(scroll >= 100){
 document.querySelector('body').classList.add('scroll')
@@ -90,13 +90,13 @@ const dropDowns = Array.from(document.querySelectorAll('#navigation .cs-dropdown
                 currentIndex = slides.length;
             }
 
-            slides.forEach((slide, i) => {
-                slide.style.display = (i === currentIndex) ? 'block' : 'none';
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === currentIndex) ? 'block' : 'none';
             });
 
-            dots.forEach((dot, i) => {
+            dots.forEach((dot, index) => {
                 dot.className = dot.className.replace(' active', '');
-                if (i === currentIndex) {
+                if (index === currentIndex) {
                     dot.className += ' active';
                 }
             });
@@ -113,9 +113,9 @@ const dropDowns = Array.from(document.querySelectorAll('#navigation .cs-dropdown
             showSlides(currentIndex += 1);
         });
 
-        dots.forEach((dot, i) => {
+        dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                showSlides(currentIndex = i);
+                showSlides(currentIndex = index);
             });
         });
     }
