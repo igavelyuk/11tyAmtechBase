@@ -74,7 +74,7 @@ task("startup", async () => {
 const srcfolder = "./no_optimization_public_folder";
 const srcfolderfonts = "./src";
 const destfolder = "./public_folder/";
-const assetFinal = "..";
+const assetFinal = "";
 // All paths
 const paths = {
   html: {
@@ -131,9 +131,9 @@ async function doAll() {
   // series(series(purifyHtml))();
 
 // Backup Good
-  series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml, optimizeImages, addFallbackAvif)();
+  // series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml, optimizeImages, addFallbackAvif)();
 
-  // series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml)();
+  series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml)();
 }
 
 // Early prototype, not finished
