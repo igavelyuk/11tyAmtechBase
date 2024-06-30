@@ -150,11 +150,9 @@ function addFallbackAvif() {
 }
 function loadJsons(path) {
   var sources = require(path+'/busters.json');
-  return JSON.stringify(sources);
+  return (sources);
 
   //(log(toString(hash)))
-
-
     // <picture>
     // <source type="image/avif" srcset="./to/show.avif" />
     // <source type="image/webp" srcset="./to/show.webp" />
@@ -298,9 +296,16 @@ function purifyHtml() {
     .pipe(cheerio(function($) {
       // $('script').remove(); /broken files
       // $('link').remove();
-      $('head').append(`<link rel="stylesheet" href="${assetFinal+'../../css/all-min.css'}"/>`);
+      let CSSHash = loadJsons(`./public_folder/css/`);
+      // console.log(CSSHash["public_folder/css/all-min.css"]);
+      CSSHash = CSSHash["public_folder/css/all-min.css"];
+      $('head').append(`<link rel="stylesheet" href="${assetFinal+'../../css/'+CSSHash+'.css'}"/>`);
       // +${(loadJsons(`./public_folder/css/`))}
-      $('body').append(`<script src="${assetFinal+'../../js/all-min.js'}"></script>`);
+      // loadJsons(`./public_folder/js/`);
+      let JSHash = loadJsons(`./public_folder/js/`);
+      JSHash = JSHash["public_folder/js/all-min.js"];
+
+      $('body').append(`<script src="${assetFinal+'../../js/'+JSHash+'.js'}"></script>`);
     }))
     .pipe(htmlmin({
       collapseWhitespace: true
