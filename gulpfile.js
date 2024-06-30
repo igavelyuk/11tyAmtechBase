@@ -4,7 +4,8 @@ const {
   dest,
   watch,
   series,
-  parallel
+  parallel,
+  gulp
 } = require('gulp');
 // const imagemin = require('gulp-imagemin'); // require() is not proper imagemin import for current version
 const sourcemaps = require('gulp-sourcemaps');
@@ -29,6 +30,7 @@ const clean = require('gulp-clean');
 const gulpImgLqip = require('gulp-image-lqip');
 const log = require('fancy-log');
 const gulpAvif = require('gulp-avif');
+const bust = require('gulp-buster');
 
 const {
   WritableStream
@@ -131,15 +133,28 @@ async function doAll() {
   // series(series(purifyHtml))();
 
 // Backup Good
-  series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml, optimizeImages, addFallbackAvif)();
+  // series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml, optimizeImages, addFallbackAvif)();
 
-  // series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml)();
+  series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, bustCss, minifyScripts, finalScript, bustJs, purifyHtml)();
 }
 
 // Early prototype, not finished
 // will lead to produce
 function addFallbackAvif() {
   return (series('addFallbackAvif1')())
+    // <picture>
+    // <source type="image/avif" srcset="./to/show.avif" />
+    // <source type="image/webp" srcset="./to/show.webp" />
+    // <img src="./to/show.png">
+    // </picture>
+}
+function loadJsons(path) {
+  var sources = require(path+'/busters.json');
+  return JSON.stringify(sources);
+
+  //(log(toString(hash)))
+
+
     // <picture>
     // <source type="image/avif" srcset="./to/show.avif" />
     // <source type="image/webp" srcset="./to/show.webp" />
@@ -164,6 +179,18 @@ function placeholder() {
     // so you can't have any plugins before it
     .pipe(gulpImgLqip('/img/placeholder/*'))
 }
+
+// gulp.task('default', function() {
+// 	var srcGlob = 'scss/*.scss';
+// 	return gulp.src(srcGlob)
+// 		.pipe(watch(srcGlob, function(files) {
+// 			return files
+// 				.pipe(sass())
+// 				.pipe(gulp.dest('css'))
+// 				.pipe(bust())           // pipe generated files into gulp-buster
+// 				.pipe(gulp.dest('.'));  // output busters.json to project root
+// 	}));
+// });
 
 function copyFontsTTF() {
   return src(paths.fonts_ttf.src)
@@ -190,9 +217,19 @@ function oneCss() {
   return src(paths.css.srcone)
     // .pipe(sourcemaps.init())
     // .pipe(gaprefixer())
+    // .pipe(bust())
+    // .pipe(dest('.'))
     .pipe(concat('all-min.css'))
     // .pipe(sourcemaps.write('.'))
     .pipe(gulpFilter(['**', `!*/css/all-min.css`]))
+    .pipe(clean())
+    // .pipe(loadJsons(paths.css.destone))
+    // .pipe(bust())
+    .pipe(dest(paths.css.destone));
+}
+function bustCss() {
+  return src('./public_folder/css/*.css')
+    .pipe(bust())
     .pipe(clean())
     .pipe(dest(paths.css.destone));
 }
@@ -219,7 +256,9 @@ function oneCssCompress() {
     .pipe(concat('all-min.css'))
     // .pipe(sourcemaps.write('.'))
     .pipe(postcss([autoprefixer(), cssnano()]))
+    // .pipe(bust())
     .pipe(dest(paths.css.destone));
+    // .pipe(bust());
 }
 
 function purifyCss() {
@@ -233,7 +272,11 @@ function purifyCss() {
     .pipe(purify(HTML))
     // .pipe(postcss([autoprefixer(), cssnano()]))
     // .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(dest(paths.css.dest));
+    // .pipe(bust())
+    // .pipe(loadJsons(paths.final.srccss))
+    .pipe(dest(paths.css.destone))
+    // .pipe(bust())
+    // .pipe(loadJsons(paths.final.srccss));
 };
 
 // ------------------ deleteLines -------------------------------------
@@ -256,6 +299,7 @@ function purifyHtml() {
       // $('script').remove(); /broken files
       // $('link').remove();
       $('head').append(`<link rel="stylesheet" href="${assetFinal+'../../css/all-min.css'}"/>`);
+      // +${(loadJsons(`./public_folder/css/`))}
       $('body').append(`<script src="${assetFinal+'../../js/all-min.js'}"></script>`);
     }))
     .pipe(htmlmin({
@@ -313,6 +357,7 @@ function optimizeImages() {
     //     // 1 trial 8 trials 16 trials 24 trials 48 trials 120 trials 240 trials
     //   })
     // ]).on('error', (error) => console.log(error)))
+    // .pipe(bust())
     .pipe(dest(paths.images.dest))
 }
 // Minify Images
@@ -350,6 +395,7 @@ function compileStyles() {
  * To concat scripts, add below code after sourcemaps is initialized
  * .pipe(concat('{OutputFileName}.js'))
  */
+
 function finalScript() {
   return src(paths.final.srcjs)
     .pipe(sourcemaps.init())
@@ -360,7 +406,12 @@ function finalScript() {
     // .pipe(clean())
     .pipe(dest(paths.final.destjs));
 }
-
+function bustJs() {
+  return src("./public_folder/js/*.js")
+    .pipe(bust())
+    .pipe(clean())
+    .pipe(dest("./public_folder/js/"));
+}
 function as() {
   return src('./public_folder/tmp', {
       read: false
@@ -409,7 +460,8 @@ exports.placeholder = placeholder;
 exports.as = as;
 exports.doAll = doAll;
 exports.doImages = doImages;
-exports.oneCss = oneCss; // second pass script
+exports.oneCss = oneCss;
+exports.bustCss = bustCss; // second pass script
 exports.copyCss = copyCss;
 exports.purifyCss = purifyCss;
 exports.copyHTML = copyHTML;
@@ -419,6 +471,7 @@ exports.copyFontsWeb = copyFontsWeb;
 exports.optimizeImages = optimizeImages;
 exports.compileStyles = compileStyles;
 exports.finalScript = finalScript; // second pass script
+exports.bustJs = bustJs;
 exports.minifyScripts = minifyScripts;
 exports.cacheBust = cacheBust;
 exports.watcher = watcher;
