@@ -4,8 +4,8 @@
       <div class="product {{ prod.data.block }}">
 <a href="#{{prod.data.block}}" >
           <picture class="cs-picture">
-            {% set urlstring = teams.data.image %}
-            {% set urlstringm = teams.data.imagem %}
+            {% set urlstring = prod.data.image %}
+            {% set urlstringm = prod.data.imagem %}
             <source media="(max-width: 600px)" type="image/avif" srcset={{ urlstringm | replace("/images", "/../images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
             {# <source media="(max-width: 600px)" srcset={{ teams.data.imagem }}> #}
             <source media="(min-width: 601px)" srcset={{ urlstring | replace("/images", "/../images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
