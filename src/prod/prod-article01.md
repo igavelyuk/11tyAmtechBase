@@ -5,7 +5,7 @@ date: "2024-06-22"
 tags: ["prod"]
 imagem: "../images/product-image/BAGS%20&%20STORAGE%20m.jpeg"
 image: "../images/product-image/BAGS%20&%20STORAGE.jpeg"
-imgagelazy: "../images/product-image/BAGS%20&%20STORAGE.jpeg"
+imgagelazy: "../../images/product-image/BAGS%20&%20STORAGE.jpeg"
 imageAlt: "formerly dress you people outside"
 imgwidth: "380"
 imgheight: "271"

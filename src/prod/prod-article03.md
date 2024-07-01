@@ -5,7 +5,7 @@ date: "2024-06-22"
 tags: ["prod"]
 imagem: "../images/product-image/ROPES%20m.jpeg'"
 image: "../images/product-image/ROPES.jpeg"
-imgagelazy: "../images/product-image/ROPES.jpeg"
+imgagelazy: "../../images/product-image/ROPES.jpeg"
 imageAlt: "formerly dress you people outside"
 imgwidth: "380"
 imgheight: "271"

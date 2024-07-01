@@ -5,7 +5,7 @@ date: "2024-06-22"
 tags: ["teams"]
 imagem: "../images/avif/team-gallery/team-gallery-img-4-m.png"
 image: "../images/team-gallery/team-gallery-img-4.png"
-imgagelazy: "../images/team-gallery/team-gallery-img-4.png"
+imgagelazy: "../../images/team-gallery/team-gallery-img-4.png"
 imageAlt: "Jax, the Gruff Chef"
 imgwidth: "380"
 imgheight: "271"

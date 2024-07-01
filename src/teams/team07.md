@@ -5,7 +5,7 @@ date: "2024-06-22"
 tags: ["teams"]
 imagem: "../images/avif/team-gallery/team-gallery-img-7-m.png"
 image: "../images/team-gallery/team-gallery-img-7.png"
-imgagelazy: "../images/team-gallery/team-gallery-img-7.png"
+imgagelazy: "../../images/team-gallery/team-gallery-img-7.png"
 imageAlt: "Ari, the Sunlit Bard"
 imgwidth: "380"
 imgheight: "271"
