@@ -4,8 +4,10 @@
       <div class="cs-content">
         <div class="slider">
 
-            {%- for prod in collections.prod | reverse -%}
-            <div id ="{{prod.data.block }}" class="slides">
+            {%- for proda in collections.prod | reverse -%}
+            {% set urlstring = proda.data.image %}
+            {% set urlstringm = proda.data.imagem %}
+            <div id ="{{proda.data.block }}" class="slides">
             <div class="slide">
             <div class="slide-content">
               <h2 class="cs-title">  </h2>
@@ -13,17 +15,15 @@
 
               </p>
             </div>
-            <div class="product {{ teams.data.block }}">
+            <div class="product {{ proda.data.block }}">
               {# <a href={{ '#'+teams.url }} > #}
                 <picture class="cs-picture">
-                  {% set urlstring = prod.data.image %}
-                  {% set urlstringm = prod.data.imagem %}
                   <source media="(max-width: 600px)" type="image/avif" srcset={{ urlstringm | replace("/images", "/../images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
                   {# <source media="(max-width: 600px)" srcset={{ teams.data.imagem }}> #}
-                  <source media="(min-width: 601px)" srcset={{ urlstring | replace("/images", "/../images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }}/>
-                    <img loading="lazy" decoding="async" src={{ prod.data.imgagelazy }} alt="formerly dress you people outside" width={{ prod.data.imgwidth }} height={{ prod.data.imgheight }}/>
+                  <source media="(min-width: 601px)" srcset={{ urlstring | replace("/images", "/../images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
+                    <img loading="lazy" decoding="async" src={{ proda.data.imgagelazy }} alt="formerly dress you people outside" width={{ proda.data.imgwidth }} height={{ proda.data.imgheight }} />
                 </picture>
-                <h5 class="product-title">{{ prod.data.title }}</h5>
+                <h5 class="product-title">{{ proda.data.title }}</h5>
                 {# </a> #}
             </div>
             </div>
