@@ -323,11 +323,11 @@
       display: flex;
     }
   }
-  
+
   /*-- -------------------------- -->
   <---     Navigation Dropdown    -->
   <--- -------------------------- -*/
-  
+
   /* Mobile - 1023px */
   @media only screen and (max-width: 1023px) {
     #navigation .cs-li {
@@ -498,11 +498,11 @@
       display: none;
     }
   }
-  
+
   /*-- -------------------------- -->
   <---     Desktop Navigation     -->
   <--- -------------------------- -*/
-  
+
   /* Small Desktop - 1024px */
   @media only screen and (min-width: 64rem) {
     body.scroll #navigation {
@@ -665,7 +665,7 @@
       color: var(--primary);
     }
   }
-                                  
+
 
 
   /*-- -------------------------- -->
@@ -674,7 +674,7 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-  #hero-section {
+  #hero-section, #hero-section1 {
       /* Centers button */
       text-align: left;
       /* 200px - 300px - leaving extra space for the navigation */
@@ -684,7 +684,7 @@
       position: relative;
       z-index: 1;
   }
-  #hero-section .cs-background {
+  #hero-section .cs-background , #hero-section1 .cs-background{
       width: 100%;
       height: 100%;
       display: block;
@@ -693,7 +693,7 @@
       left: 0;
       z-index: -2;
   }
-  #hero-section .cs-background:before {
+  #hero-section .cs-background:before, #hero-section1 .cs-background:before {
       /* Overlay */
       content: "";
       width: 100%;
@@ -708,7 +708,7 @@
       /* prevents the cursor from interacting with it */
       pointer-events: none;
   }
-  #hero-section .cs-background img {
+  #hero-section .cs-background, #hero-section1 .cs-background img {
       position: absolute;
       top: 0;
       left: 0;
@@ -718,12 +718,12 @@
       /* makes the top of the image start at the top of the parent */
       object-position: top;
   }
-  #hero-section .cs-container {
+  #hero-section .cs-container, #hero-section1 .cs-container {
       width: 100%;
       max-width: 80rem;
       margin: auto;
   }
-  #hero-section .cs-content {
+  #hero-section .cs-content,#hero-section1 .cs-content {
       /* set text align to left if content needs to be left aligned */
       text-align: center;
       width: 100%;
@@ -734,7 +734,7 @@
       align-items: center;
   }
 
-  #hero-section .cs-text {
+  #hero-section .cs-text, #hero-section1 .cs-text {
       /* 16px - 20px */
       font-size: clamp(1rem, 1.95vw, 1.25rem);
       line-height: 1.5em;
@@ -748,11 +748,11 @@
 }
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-  #hero-section .cs-content {
+  #hero-section .cs-content, #hero-section1 .cs-content {
       text-align: left;
       align-items: flex-start;
   }
-  #hero-section .cs-background:before {
+  #hero-section .cs-background:before,#hero-section1 .cs-background:before {
       background: linear-gradient(
           to right,
           rgba(0, 0, 0, 0.94) 0%,
@@ -1124,10 +1124,10 @@
       grid-row: 2 / span 2;
   }
 }
-                              
-                              
 
-                              
+
+
+
 /*-- -------------------------- -->
 <---          products          -->
 <--- -------------------------- -*/
@@ -1170,7 +1170,7 @@
     letter-spacing: -0.05000000074505806px;
     text-align: left;
     padding: 16px 8px;
-    
+
   }
   #products .cs-text:last-of-type {
       margin-bottom: 2rem;
@@ -1250,8 +1250,8 @@
       grid-row: 2 / span 1;
   }
 }
-                              
-                              
+
+
 /*-- -------------------------- -->
 <---          Footer            -->
 <--- -------------------------- -*/
@@ -1376,4 +1376,3 @@
       margin: 0 auto;
   }
 }
-                              
