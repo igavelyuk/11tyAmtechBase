@@ -1,4 +1,4 @@
-  {% include 'teamsheader.njk' %}
+  {# {% include 'teamsheader.njk' %} #}
   <section id="products-slider" class="products-slider">
     <div class="cs-container padding-top-teams100">
       <div class="cs-content">
@@ -20,8 +20,8 @@
                   {% set urlstringm = teams.data.imagem %}
                   <source media="(max-width: 600px)" type="image/avif" srcset={{ urlstringm | replace("/images", "images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }} />
                   {# <source media="(max-width: 600px)" srcset={{ teams.data.imagem }}> #}
-                  <sou rce media="(min-width: 601px)" srcset={{ urlstring | replace("/images", "/../images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }}>
-                    <img loading="lazy" decoding="async" src={{ prod.data.imgagelazy }} alt="formerly dress you people outside" width={{ prod.data.imgwidth }} height={{ prod.data.imgheight }}>
+                  <sou rce media="(min-width: 601px)" srcset={{ urlstring | replace("/images", "/../images/avif") | replace(".jpeg", ".avif") | replace(".png", ".avif") | safe }}/>
+                    <img loading="lazy" decoding="async" src={{ prod.data.imgagelazy }} alt="formerly dress you people outside" width={{ prod.data.imgwidth }} height={{ prod.data.imgheight }}/>
                 </picture>
                 <h5 class="product-title">{{ prod.data.title }}</h5>
                 {# </a> #}
