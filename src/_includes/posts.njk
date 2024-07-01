@@ -1,8 +1,9 @@
+<div class="cs-product-group">
 
       {%- for prod in collections.prod | reverse -%}
 
       <div class="product {{ prod.data.block }}">
-<a href="#{{prod.data.block}}" >
+        <a href="#{{prod.data.block}}" >
           <picture class="cs-picture">
             {% set urlstring = prod.data.image %}
             {% set urlstringm = prod.data.imagem %}
@@ -12,7 +13,9 @@
               <img loading="lazy" decoding="async" src={{ prod.data.imgagelazy }} alt="formerly dress you people outside" width={{ prod.data.imgwidth }} height={{ prod.data.imgheight }} />
           </picture>
           <h5 class="product-title">{{ prod.data.title }}</h5>
-</a>
+        </a>
       </div>
 
       {%- endfor -%}
+
+</div>
