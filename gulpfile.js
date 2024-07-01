@@ -135,7 +135,7 @@ async function doAll() {
 // Backup Good
   // series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, purifyHtml, optimizeImages, addFallbackAvif)();
 
-  series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, bustCss, minifyScripts, finalScript, bustJs, purifyHtml)();
+  series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, bustCss, minifyScripts, finalScript, bustJs, purifyHtml, hashJs, hashCss)();
 }
 
 // Early prototype, not finished
@@ -230,6 +230,20 @@ function bustCss() {
     .pipe(bust())
     .pipe(clean())
     .pipe(dest(paths.css.destone));
+}
+function hashCss() {
+  return src('./public_folder/css/*.css')
+  pipe(rename({
+    suffix: hashCss1()+'.min'
+  }))
+  .pipe(dest());
+}
+function hashCss1() {
+  let CSSHash = loadJsons(`./public_folder/css/`);
+  CSSHash = CSSHash["public_folder/css/all-min.css"];
+  let CSSHashString = `"${'../../css/'+CSSHash+'.dss'}"`
+  return CSSHashString;
+  // .pipe(dest(`"${'../../css/'+CSSHash+'.css'}"`));
 }
 function copyAllExceptCss() {
   return src(['' + '/css/**/*','!' + '/css/**/*.css','!' + '/css/**/*.map'])
@@ -417,6 +431,20 @@ function bustJs() {
     .pipe(clean())
     .pipe(dest("./public_folder/js/"));
 }
+function hashJs() {
+  return src("./public_folder/js/*.js")
+  //   .pipe(bust())
+  //   .pipe(clean())
+    .pipe(dest("./public_folder/js/"));
+}
+function hashJs1() {
+  let JSHash = loadJsons(`./public_folder/js/`);
+  JSHash = JSHash["public_folder/js/all-min.js"];
+  let JSHashString = `"${'../../js/'+JSHash+'.js'}"`
+  // console.log(JSHashString)
+  return JSHashString;
+  // .pipe(dest(`"${'../../css/'+CSSHash+'.css'}"`));
+}
 function as() {
   return src('./public_folder/tmp', {
       read: false
@@ -458,7 +486,7 @@ function watcher() {
 // Export tasks to make them public
 // exports.copyImages = copyImages;
 exports.addFallbackAvif = addFallbackAvif;
-exports.copyAllExceptCss = copyAllExceptCss;
+exports.copyAllExceptJs = copyAllExceptCss;
 // exports.finishInfo = finishInfo;
 exports.oneCssCompress = oneCssCompress;
 exports.placeholder = placeholder;
@@ -467,6 +495,8 @@ exports.doAll = doAll;
 exports.doImages = doImages;
 exports.oneCss = oneCss;
 exports.bustCss = bustCss; // second pass script
+exports.hashCss = hashCss;
+exports.hashCss1 = hashCss1;
 exports.copyCss = copyCss;
 exports.purifyCss = purifyCss;
 exports.copyHTML = copyHTML;
@@ -477,6 +507,8 @@ exports.optimizeImages = optimizeImages;
 exports.compileStyles = compileStyles;
 exports.finalScript = finalScript; // second pass script
 exports.bustJs = bustJs;
+exports.hashJs = hashJs;
+exports.hashJs1 = hashJs1;
 exports.minifyScripts = minifyScripts;
 exports.cacheBust = cacheBust;
 exports.watcher = watcher;
