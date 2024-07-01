@@ -233,15 +233,17 @@ function bustCss() {
 }
 function hashCss() {
   return src('./public_folder/css/*.css')
-  pipe(rename({
-    suffix: hashCss1()+'.min'
-  }))
-  .pipe(dest());
+  .pipe(rename('base' + (hashCss1()) + '.css'))
+  // pipe(rename({
+  //   suffix: hashCss1()
+  // }))
+  .pipe(dest('public_folder/'));
 }
 function hashCss1() {
+
   let CSSHash = loadJsons(`./public_folder/css/`);
   CSSHash = CSSHash["public_folder/css/all-min.css"];
-  let CSSHashString = `"${'../../css/'+CSSHash+'.dss'}"`
+  let CSSHashString = `${'../../css/'+CSSHash}`
   return CSSHashString;
   // .pipe(dest(`"${'../../css/'+CSSHash+'.css'}"`));
 }
@@ -432,18 +434,15 @@ function bustJs() {
     .pipe(dest("./public_folder/js/"));
 }
 function hashJs() {
-  return src("./public_folder/js/*.js")
-  //   .pipe(bust())
-  //   .pipe(clean())
-    .pipe(dest("./public_folder/js/"));
+  return src('./public_folder/js/*.js')
+  .pipe(rename('base' + (hashJs1()) + '.js'))
+  .pipe(dest('public_folder/'));
 }
 function hashJs1() {
   let JSHash = loadJsons(`./public_folder/js/`);
   JSHash = JSHash["public_folder/js/all-min.js"];
-  let JSHashString = `"${'../../js/'+JSHash+'.js'}"`
-  // console.log(JSHashString)
+  let JSHashString = `${'../../js/'+JSHash}`
   return JSHashString;
-  // .pipe(dest(`"${'../../css/'+CSSHash+'.css'}"`));
 }
 function as() {
   return src('./public_folder/tmp', {
