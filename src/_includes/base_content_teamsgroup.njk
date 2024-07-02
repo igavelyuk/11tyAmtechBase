@@ -1,5 +1,5 @@
 
-      {%- for teams in collections.teams | reverse -%}
+      {%- for teams in collections.teams -%}
 
       <picture class="cs-picture {{ teams.data.block }}">
         {% set urlstring = teams.data.image %}
