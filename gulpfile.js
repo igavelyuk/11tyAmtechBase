@@ -133,9 +133,9 @@ async function doAll() {
   // series(series(purifyHtml))();
 
 // Backup Good
-  // series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, bustJs, bustCss, purifyHtml, hashJs, hashCss, optimizeImages, addFallbackAvif)();
+  series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, bustJs, bustCss, purifyHtml, hashJs, hashCss, optimizeImages, addFallbackAvif)();
 
-    series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, bustJs, bustCss, purifyHtml, hashJs, hashCss)();
+    // series(startup, cacheBust, copyHTML, copyCss, copyFontsTTF, copyFontsWeb, compileStyles, oneCss, minifyScripts, finalScript, bustJs, bustCss, purifyHtml, hashJs, hashCss)();
 }
 
 // Early prototype, not finished

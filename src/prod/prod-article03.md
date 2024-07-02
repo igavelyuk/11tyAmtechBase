@@ -10,7 +10,7 @@ imageAlt: "formerly dress you people outside"
 imgwidth: "380"
 imgheight: "271"
 description: "Durable bags for all your gear and equipment needs."
-block: "block-2"
+block: "block-3"
 ---
 
 "Premium harnesses are designed and assembled in New Zealand,
