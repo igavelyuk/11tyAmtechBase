@@ -12,7 +12,6 @@ imgheight: "271"
 description: "Durable bags for all your gear and equipment needs."
 block: "block-2"
 ---
-# Header
 
 "Premium harnesses are designed and assembled in New Zealand,
 tailored to our unique lifestyle. Range includes everyday, industry-specific,
