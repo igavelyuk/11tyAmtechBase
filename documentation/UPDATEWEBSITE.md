@@ -1,5 +1,5 @@
 
-#UPDATEWEBSITE
+# UPDATEWEBSITE
 
 All files located in `src` during 1st stage it compiles via 11ty to `no_optimization_public_folder` during 2nd stage it optimize it to `public_folder`
 
@@ -19,7 +19,8 @@ All files located in `src` during 1st stage it compiles via 11ty to `no_optimiza
  - /_include
 
 
- #### _include
+ #### `/_include` folder (general structure)
+
  Main page
  - header.njk
  - base.njk
