@@ -9,7 +9,7 @@ Initial Raw HTML template got errors as multiple anchors with ID, luck of flexbo
 [How 11ty template works](https://github.com/igavelyuk/11tyAmtechBase/blob/unstable-alpha/documentation/UPDATEWEBSITE.md)
 
 ### Base install commands
-(Read INSTALLATION.md)[https://github.com/igavelyuk/11tyAmtechBase/blob/unstable-alpha/documentation/INSTALLATION.md]
+[Read INSTALLATION.md](https://github.com/igavelyuk/11tyAmtechBase/blob/unstable-alpha/documentation/INSTALLATION.md)
 
 ##### Global commans and information
 
