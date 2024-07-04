@@ -1,5 +1,5 @@
 #  11ty blog Amtech
-#### MitchellAnderson upwork task 06/21/2024
+#### MitchellAnderson upwork task 06/21/2024-07/04/2024
 
 ### Use/Why/Base
 Raw HTML template putted as 11ty blog engine base with git, contain mostly original HTML design, as base for future development and optimization.
