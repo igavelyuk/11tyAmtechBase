@@ -28,11 +28,12 @@ All files located in `src` during 1st stage it compiles via 11ty to `no_optimiza
  - 1footer.njk
 
  Product page
- - prodheader.njk
- - prod.njk
- - posts.njk
- - postsslides.njk
- - prodcontent.njk
+ - 2prodheader.njk
+ - 2prod.njk
+ - 2posts.njk
+ - 2postsslides.njk
+ - 2prodcontent.njk
+   - Dependency - 1footer.njk
 
  Teams page
  - teamsheader.njk
