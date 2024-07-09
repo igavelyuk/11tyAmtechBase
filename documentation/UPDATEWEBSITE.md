@@ -41,12 +41,12 @@ All files located in `src` during 1st stage it compiles via 11ty to `no_optimiza
  - 3base_content_teamsgroup.njk
 
  About page
- - about_company_header.njk
- - about_company.njk
+ - 4about_company_header.njk
+ - 4about_company.njk
 
  Contact page
- - contact_company_header.njk           
- - contact_company.njk                       
+ - 5contact_company_header.njk           
+ - 5contact_company.njk                       
 
 All uses common footer `footer.njk`
 Beacause of menu and SEO had different headers
