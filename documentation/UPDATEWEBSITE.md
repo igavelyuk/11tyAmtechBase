@@ -36,9 +36,9 @@ All files located in `src` during 1st stage it compiles via 11ty to `no_optimiza
    - Dependency - 1footer.njk
 
  Teams page
- - teamsheader.njk
- - teams.njk
- - base_content_teamsgroup.njk
+ - 3teamsheader.njk
+ - 3teams.njk
+ - 3base_content_teamsgroup.njk
 
  About page
  - about_company_header.njk
