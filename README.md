@@ -43,4 +43,4 @@ Versions is important
 - [WebP cli](https://developers.google.com/speed/webp/docs/precompiled)
 - [Avif Webp compare online tool](https://squoosh.app)
 
-README.md - `ver 0.0.6`
+README.md - `ver 0.0.7`

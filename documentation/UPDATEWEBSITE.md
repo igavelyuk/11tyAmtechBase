@@ -22,10 +22,10 @@ All files located in `src` during 1st stage it compiles via 11ty to `no_optimiza
  #### `/_include` folder (general structure)
 
  Main page
- - header.njk
- - base.njk
- - content.njk
- - footer.njk
+ - 1header.njk
+ - 1base.njk
+ - 1content.njk
+ - 1footer.njk
 
  Product page
  - prodheader.njk
