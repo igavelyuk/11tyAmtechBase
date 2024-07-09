@@ -7,7 +7,8 @@ Raw HTML template putted as 11ty blog engine base with git, contain mostly origi
 On top Gulp with tasks for image, Html, Css and Js compressing and optimization.
 In this form it can be improved and developed in the future.
 Initial Raw HTML template got errors as multiple anchors with ID, luck of flexbox etc, photos order cant be changed ets.. This all bugs from my prespective what I trinsfer as is, just want to point it exist as in original, probably it have special purpose or maybe not.
-[How 11ty template works](https://github.com/igavelyuk/11tyAmtechBase/blob/unstable-alpha/documentation/UPDATEWEBSITE.md)
+
+[How 11ty template works how to update](https://github.com/igavelyuk/11tyAmtechBase/blob/unstable-alpha/documentation/UPDATEWEBSITE.md)
 
 
 
