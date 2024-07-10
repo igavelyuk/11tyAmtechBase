@@ -2,13 +2,19 @@
 #### MitchellAnderson upwork task 06/21/2024-07/04/2024
 
 ### Use/Why/Base
+
 Raw HTML template putted as 11ty blog engine base with git, contain mostly original HTML design, as base for future development and optimization.
 On top Gulp with tasks for image, Html, Css and Js compressing and optimization.
 In this form it can be improved and developed in the future.
 Initial Raw HTML template got errors as multiple anchors with ID, luck of flexbox etc, photos order cant be changed ets.. This all bugs from my prespective what I trinsfer as is, just want to point it exist as in original, probably it have special purpose or maybe not.
-[How 11ty template works](https://github.com/igavelyuk/11tyAmtechBase/blob/unstable-alpha/documentation/UPDATEWEBSITE.md)
 
-### Base install commands
+[How 11ty template works how to update](https://github.com/igavelyuk/11tyAmtechBase/blob/unstable-alpha/documentation/UPDATEWEBSITE.md)
+
+
+
+### Base install
+
+
 [Read INSTALLATION.md](https://github.com/igavelyuk/11tyAmtechBase/blob/unstable-alpha/documentation/INSTALLATION.md)
 
 ##### Global commans and information
@@ -18,7 +24,9 @@ Initial Raw HTML template got errors as multiple anchors with ID, luck of flexbo
   - Run lcalhost:8080 `npm run serve` (Live Server: `npx @11ty/eleventy --serve`)
 
   - Compress images, minify JS, CSS, HTML `npm run zip`
+    - Contain 17 stages of manipulation with files
 
+[See more COMMANDS.md](https://github.com/igavelyuk/11tyAmtechBase/blob/unstable-alpha/documentation/COMMANDS.md)
 
 #### Packages
 Versions is important
@@ -35,4 +43,4 @@ Versions is important
 - [WebP cli](https://developers.google.com/speed/webp/docs/precompiled)
 - [Avif Webp compare online tool](https://squoosh.app)
 
-README.md - `ver 0.0.6`
+README.md - `ver 0.0.7`
